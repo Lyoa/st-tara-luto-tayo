@@ -16,7 +16,7 @@ app.use(express.json())
 app.use(bodyParser.json())
 
 app.get('/', (req, res) => {
-    res.send('Welcome to Awesome Application!')
+    res.send('Welcome to my Capstone!')
 })
 
 app.get('/api-docs', (req, res) => {
