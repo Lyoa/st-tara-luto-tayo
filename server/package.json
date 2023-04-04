@@ -2,13 +2,13 @@
     "name": "st-tara-luto-tayo",
     "version": "1.0.0",
     "description": "Welcome to My Capstone: Tara, Luto Tayo! 👩‍🍳🍳🍴",
-    "main": "index.js",
+    "main": "server.js",
     "scripts": {
         "dev": "nodemon ./server.js localhost 5432",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
     "keywords": [],
-    "author": "",
+    "author": "Shaira de Leon",
     "license": "ISC",
     "dependencies": {
         "cors": "^2.8.5",
