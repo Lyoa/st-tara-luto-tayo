@@ -10,10 +10,10 @@
 
 ### Backend / Server-side
 
--
+- API Endpoint
 
 ### Database
 
--
+-pgAdmin setup
 
 Authored by: Shaira de Leon
