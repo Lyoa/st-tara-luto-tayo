@@ -1,17 +1,40 @@
 module.exports = (sequelize, DataTypes, Model) => {
-    class User extends Model {}
+    class Users extends Model {}
 
-    User.init(
+    Users.init(
         {
-            username: {
-                type: DataTypes.STRING,
+            id: {
+                type: DataTypes.INTEGER,
+                allowNull: false,
+                primaryKey: true,
+                autoIncrement: true
             },
+            first_name: {
+                type: DataTypes.STRING,
+                allowNull: false
+            },
+            last_name: {
+                type: DataTypes.STRING,
+                allowNull: false
+            },
+            email: {
+                type: DataTypes.STRING,
+                allowNull: false
+            }, 
+            password: {
+                type: DataTypes.STRING,
+                allowNull: false
+            },
+            type: {
+                type: DataTypes.STRING,
+                allowNull: false
+            },                     
         },
         {
             sequelize,
             modelName: 'users',
+            tableName: 'users'
         }
     )
-
-    return User
+    return Users
 }
