@@ -8,26 +8,19 @@ class UserRepository {
     }
 
     // CREATE
-    // async createUser() {}
-
     async getUsers() {
         try {
-            console.log('Getting Users...')
+            console.log('Getting Users in the Repository')
             const users = this.db.users.findAll({
                 order: [['id', 'ASC']],
             })
+            console.log("Find all values: ", users)
             return users
         } catch (error) {
-            console.log('Error in getting users', error)
+            console.log('There is an error getting users', error)
             return []
         }
     }
-
-    // UPDATE
-    // async updateUser() {}
-
-    // DELETE
-    // async deleteUser() {}
 }
 
 module.exports = new UserRepository()
