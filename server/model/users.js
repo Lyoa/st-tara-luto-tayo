@@ -34,6 +34,9 @@ module.exports = (sequelize, DataTypes, Model) => {
             sequelize,
             modelName: 'users',
             tableName: 'users'
+            timestamps: true,
+            createdAt: 'inserted_at',
+            updatedAt: 'updated_at',
         }
     )
     return Users
