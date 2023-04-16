@@ -1,16 +1,16 @@
 const userService = require('../service/users')
 
 class UserController {
-    async getUsers() {
-        return await userService.getUsers()
+    async getAllUsers() {
+        return await userService.getAllUsers()
     }
 
     async getUsersById(user) {
         return await userService.getUsersById(user)
     }
 
-    async createUser(customer) {
-        return await userService.createUser(customer)
+    async createUser(user) {
+        return await userService.createUser(user)
     }
 
     async updateUser(user) {

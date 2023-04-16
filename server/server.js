@@ -15,16 +15,26 @@ app.use(cors())
 app.use(express.json())
 app.use(bodyParser.json())
 
-app.get('/', (req, res) => {
-    res.send('Welcome to my Capstone!')
+
+app.post('/api/v1/users', (req, res) => {
+    console.log("hahahaha", req.body)
+    usersController.createUser(req.body.users).then((data) => res.json(data))
 })
 
-app.get('/api-docs', (req, res) => {
-    res.send('API DOCS!')
+app.get('/api/v1/users/:id', (req, res) => {
+    usersController.getUsersById(req.params.id).then((data) => res.json(data))
 })
 
-app.get('/api/users', (req, res) => {
-    usersController.getUsers().then((data) => res.json(data))
+app.get('/api/v1/users', (req, res) => {
+    usersController.getAllUsers().then((data) => res.json(data))
+})
+
+app.put("/api/v1/users", (req, res) => {
+    usersController.updateUser(req.body.users).then((data) => res.json(data));
+})
+
+app.delete('/api/v1/users/:id', (req, res) => {
+    usersController.deleteUser(req.params.id).then((data) => res.json(data))
 })
 
 app.listen(port, () => {

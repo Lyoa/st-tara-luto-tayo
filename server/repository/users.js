@@ -9,23 +9,24 @@ class UserRepository {
     }
 
     // CREATE
-    async createUser(customer) {
-        let customerData = {}
+    async createUser(user) {
+      let userData = {}
     
-        try {
-            const password = customer.password
-            const salt = bcrypt.genSaltSync(10)
-            const hashedPassword = bcrypt.hashSync(password, salt)
-    
-            customerData = { ...customer, password: hashedPassword }
-            const createdUser = await this.db.users.create(customerData)
-            return createdUser
-        } catch (error) {
-            console.log('Error: ', error)
-        }
+      try {
+        const password = user.password
+        const salt = bcrypt.genSaltSync(10)
+        const hashedPassword = bcrypt.hashSync(password, salt)
+        
+        userData = { ...user, password: hashedPassword }
+        const createdUser = await this.db.users.create(userData)
+        return createdUser
+      } catch (error) {
+        console.log('Error: ', error)
+      }
     }
+
     // READ
-    async getUsers() {
+    async getAllUsers() {
         try {
             console.log('Getting Users in the Repository')
             const users = this.db.users.findAll({
@@ -57,20 +58,22 @@ class UserRepository {
 
     // UPDATE
     async updateUser(user) {
-        try {
-          const data = await this.db.users.update(
-            { ...user },
-            {
-              where: {
-                id: user.id
-              },
-            }
-          );
-          return data;
-        } catch (error) {
-          console.log('Error:', error);
-        }
+      let data = {}
+
+      try {
+          data = await this.db.users.update(
+              { ...user },
+              {
+                  where: {
+                      id: user.id,
+                  },
+              }
+          )
+      } catch (error) {
+          console.log('Error: ', error)
       }
+      return data
+  }
 
     // DELETE
     async deleteUser(id) {
