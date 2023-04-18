@@ -7,7 +7,7 @@ function App() {
     return (
         <div className="bg-gray-700">
             <div className="flex justify-center items-center h-[100vh]">
-                <p className="text-white">Cool Application!!! 🎉</p>
+                <p className="text-white">Ongoing Capstone 🎉</p>
                 <div>
                     <Login />
                 </div>
