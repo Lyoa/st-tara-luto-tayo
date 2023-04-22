@@ -34,6 +34,7 @@ const connect = () => {
         })
 
     db.users = require('../model/users')(sequelize, DataTypes, Model)
+    db.categories = require('../model/categories')(sequelize, DataTypes, Model)
 
     return db
 }
