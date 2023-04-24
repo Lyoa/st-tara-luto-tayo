@@ -10,10 +10,12 @@
 
 ### Backend / Server-side
 
-- API Endpoint
+-   API Endpoint
+-   CRUD / Sequelize
 
 ### Database
 
--pgAdmin setup
+-   pgAdmin setup
+-   test run in Postman
 
 Authored by: Shaira de Leon

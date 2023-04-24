@@ -12,6 +12,5 @@ function Categories() {
     return <><ul>
         {categories.map(category => (<li>{category.title}</li>))}
         </ul></>
-}
-  
+} 
   export default Categories;

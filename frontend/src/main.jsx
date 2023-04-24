@@ -10,7 +10,7 @@ import "./index.css";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello world!</div>,
+    element: <div>Displaying TLT Capstone - Recipe Categories | Test Run</div>,
   }, {
     path: "/categories",
     element: <Categories />
