@@ -17,7 +17,7 @@ app.use(express.json())
 app.use(bodyParser.json())
 
 app.post('/api/v1/users', (req, res) => {
-    console.log('hahahaha', req.body)
+    console.log('test run express', req.body)
     usersController.createUser(req.body.users).then((data) => res.json(data))
 })
 
@@ -41,6 +41,6 @@ app.listen(port, () => {
     console.log(`Server listening on the port: ${port}`)
 })
 
-app.get('/api/categories', (req, res) => {
+app.get('/api/v1/categories', (req, res) => {
     categoriesController.listCategories().then((data) => res.json(data))
 })

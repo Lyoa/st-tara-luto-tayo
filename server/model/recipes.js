@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes, Model) => {
                 type: DataTypes.INTEGER,
                 allowNull: false,
                 primaryKey: true,
-                autoIncrement: true
+                autoIncrement: true,
             },
             title: {
                 type: DataTypes.STRING,
@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes, Model) => {
                 allowNull: false,
             },
             cook_time: {
-                type: DataTypes.STRING,
+                type: DataTypes.INTEGER,
                 allowNull: false,
             },
             calories: {
@@ -36,12 +36,12 @@ module.exports = (sequelize, DataTypes, Model) => {
             instructions: {
                 type: DataTypes.STRING,
                 allowNull: false,
-            }
+            },
         },
         {
             sequelize,
             modelName: 'recipes',
-            tableName: 'recipes'
+            tableName: 'recipes',
         }
     )
     return Recipes
