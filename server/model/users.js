@@ -7,33 +7,29 @@ module.exports = (sequelize, DataTypes, Model) => {
                 type: DataTypes.INTEGER,
                 allowNull: false,
                 primaryKey: true,
-                autoIncrement: true
+                autoIncrement: true,
             },
             first_name: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: false,
             },
             last_name: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: false,
             },
             email: {
                 type: DataTypes.STRING,
-                allowNull: false
-            }, 
+                allowNull: false,
+            },
             password: {
                 type: DataTypes.STRING,
-                allowNull: false
+                allowNull: false,
             },
-            type: {
-                type: DataTypes.STRING,
-                allowNull: false
-            },                     
         },
         {
             sequelize,
             modelName: 'users',
-            tableName: 'users'
+            tableName: 'users',
         }
     )
     return Users

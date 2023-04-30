@@ -1,14 +1,15 @@
-// add getUserList
-// export const getUserList = async () => {
-//     try {
-//         const response = await fetch('/api/v1/users')
-//         if (response.status === 200) {
-//             console.log('Fetched records successfully', await response.json())
-//         }
-//     } catch (error) {
-//         console.log('Failed to fetch records', error)
-//     }
-// }
+export const createUser = async (users) => {
+    try {
+        const response = await fetch('/api/v1/users', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ users }),
+        })
+        return response.json()
+    } catch (error) {
+        console.error(error.message)
+    }
+}
 
 export async function getUserList() {
     try {
@@ -19,15 +20,25 @@ export async function getUserList() {
     }
 }
 
-// add createUser
-// const createUser = () => {
+export async function updateUser(users) {
+    const response = await fetch('/api/v1/users', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ user: users }),
+    })
+    return await response.json()
+}
 
-// }
-// add updateUser
-// const updateUser = () => {
-
-// }
-// add deleteUser
-// const deleteUser = () => {
-
-// }
+export async function deleteUser(id) {
+    try {
+        const confirmed = window.confirm('You are about to delete this data')
+        if (confirmed) {
+            const deleteUser = await fetch(`/api/v1/users/${id}`, {
+                method: 'DELETE',
+            })
+            return true
+        }
+    } catch (error) {
+        console.log('Error: ', error)
+    }
+}

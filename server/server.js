@@ -17,7 +17,6 @@ app.use(express.json())
 app.use(bodyParser.json())
 
 app.post('/api/v1/users', (req, res) => {
-    console.log('test run express', req.body)
     usersController.createUser(req.body.users).then((data) => res.json(data))
 })
 
