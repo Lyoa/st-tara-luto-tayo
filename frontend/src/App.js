@@ -1,5 +1,6 @@
 import UserList from './dashboards/UserList'
 import SignUp from './authentication/SignUp'
+import Splash from './pages/Splash'
 
 function App() {
     return (
@@ -7,6 +8,7 @@ function App() {
             Dashboard
             <UserList />
             <SignUp />
+            <Splash />
         </div>
     )
 }

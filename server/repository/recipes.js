@@ -1,24 +1,33 @@
 const { connect } = require('../config/db')
-const bcrypt = require('bcryptjs')
 
-class UserRepository {
+class RecipeRepository {
     db = {}
 
     constructor() {
         this.db = connect()
     }
 
-    // READ
-    async getAllUsers() {
+    // CREATE
+    async createRecipe(recipe) {
         try {
-            console.log('Getting Users in the Repository')
-            const users = this.db.users.findAll({
+            const createdRecipe = await this.db.recipes.create(recipe)
+            return createdRecipe
+        } catch (error) {
+            console.log('Error: ', error)
+        }
+    }
+
+    // READ
+    async getAllRecipes() {
+        try {
+            console.log('Getting Recipes in the Repository')
+            const recipes = this.db.recipes.findAll({
                 order: [['id', 'ASC']],
             })
-            console.log('Find all values: ', users)
-            return users
+            console.log('Find all values: ', recipes)
+            return recipes
         } catch (error) {
-            console.log('There is an error getting users', error)
+            console.log('There is an error getting recipes', error)
             return []
         }
     }
@@ -26,18 +35,54 @@ class UserRepository {
     // Get by ID
     async getRecipeById(id) {
         try {
-            const user = await this.db.users.findByPk(id)
-            if (!user) {
-                console.log('User not found')
+            const recipes = await this.db.recipes.findByPk(id)
+            if (!recipes) {
+                console.log('Recipes not found')
             } else {
-                console.log('User found')
+                console.log('Recipes found')
             }
-            return user
+            return recipes
         } catch (error) {
-            console.error('Error in getting user', error)
+            console.error('Error in getting recipes', error)
             return null
+        }
+    }
+
+    // UPDATE
+    async updateRecipe(recipe) {
+        let data = {}
+
+        try {
+            data = await this.db.recipe.update(
+                { ...recipe },
+                {
+                    where: {
+                        id: recipe.id,
+                    },
+                }
+            )
+        } catch (error) {
+            console.log('Error: ', error)
+        }
+        return data
+    }
+
+    // DELETE
+    async deleteRecipe(id) {
+        try {
+            const result = await this.db.recipe.destroy({ where: { id: id } })
+            if (result === 1) {
+                console.log(`recipe with id ${id} deleted successfully.`)
+                return true
+            } else {
+                console.log(`Recipe with id ${id} not found.`)
+                return false
+            }
+        } catch (error) {
+            console.log('Error deleting recipe', error)
+            return false
         }
     }
 }
 
-module.exports = new UserRepository()
+module.exports = new RecipeRepository()

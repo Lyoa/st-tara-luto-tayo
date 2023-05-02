@@ -7,21 +7,22 @@ module.exports = (sequelize, DataTypes, Model) => {
                 type: DataTypes.INTEGER,
                 allowNull: false,
                 primaryKey: true,
-                autoIncrement: true
+                autoIncrement: true,
             },
-            title: {
+            name: {
                 type: DataTypes.STRING,
                 allowNull: false,
-            }, 
-            category_id: {
-                type: DataTypes.INTEGER,
+            },
+            type: {
+                type: DataTypes.STRING,
                 allowNull: false,
-            },            
+            },
         },
         {
             sequelize,
+            timestamps: true,
             modelName: 'categories',
-            tableName: 'categories'
+            tableName: 'categories',
         }
     )
     return Categories

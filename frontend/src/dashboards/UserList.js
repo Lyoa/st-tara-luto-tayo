@@ -60,7 +60,7 @@ function UserList() {
                                 <td>
                                     <td className="flex justify-center group relative py-2 px-10">
                                         <button
-                                            className="text-white hover:text-red-500"
+                                            className="text-white hover:text-[#ac3c1c]"
                                             onClick={() =>
                                                 handleDeleteUser(record.id)
                                             }

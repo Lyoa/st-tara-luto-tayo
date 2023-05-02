@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes, Model) => {
                 primaryKey: true,
                 autoIncrement: true,
             },
-            title: {
+            name: {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
@@ -18,11 +18,11 @@ module.exports = (sequelize, DataTypes, Model) => {
                 allowNull: false,
             },
             servings: {
-                type: DataTypes.INTEGER,
+                type: DataTypes.STRING,
                 allowNull: false,
             },
             cook_time: {
-                type: DataTypes.INTEGER,
+                type: DataTypes.STRING,
                 allowNull: false,
             },
             calories: {
@@ -37,9 +37,14 @@ module.exports = (sequelize, DataTypes, Model) => {
                 type: DataTypes.STRING,
                 allowNull: false,
             },
+            ingredients: {
+                type: DataTypes.STRING,
+                allowNull: true,
+            },
         },
         {
             sequelize,
+            timestamps: true,
             modelName: 'recipes',
             tableName: 'recipes',
         }

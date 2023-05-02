@@ -35,6 +35,14 @@ const connect = () => {
 
     db.users = require('../model/users')(sequelize, DataTypes, Model)
     db.categories = require('../model/categories')(sequelize, DataTypes, Model)
+    db.recipes = require('../model/recipes')(sequelize, DataTypes, Model)
+    db.categories.hasMany(db.recipes, {
+        foreignKey: 'category_id',
+        as: 'recipes',
+    })
+    // db.sequelize.sync({ force: true }).then(() => {
+    //     console.log('Drop and re-sync db.')
+    // })
 
     return db
 }
