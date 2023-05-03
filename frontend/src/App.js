@@ -1,15 +1,24 @@
+import React from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Dashboard from './common/Dashboard'
 import UserList from './dashboards/UserList'
+import NavBar from './common/NavBar'
 import SignUp from './authentication/SignUp'
-import Splash from './pages/Splash'
+import AgahanSub from './components/AgahanSub'
+import HapunanSub from './components/HapunanSub'
 
 function App() {
     return (
-        <div>
-            Dashboard
-            <UserList />
-            <SignUp />
-            <Splash />
-        </div>
+        <BrowserRouter>
+            <NavBar />
+            <Routes>
+                <Route path="/" element={<Dashboard />} />
+                <Route path="/user-list" element={<UserList />} />
+                <Route path="/sign-up" element={<SignUp />} />
+                <Route path="/agahan" element={<AgahanSub />} />
+                <Route path="/hapunan" element={<HapunanSub />} />
+            </Routes>
+        </BrowserRouter>
     )
 }
 

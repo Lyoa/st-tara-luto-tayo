@@ -1,9 +1,13 @@
 import React from 'react'
+import logo from '../assets/logo.png'
 
 const Splash = () => {
     return (
-        <div className="min-h-screen bg-gradient-to-r from-[#ac3c1c] via-red-500 to-pink-500 flex justify-center items-center">
-            <h1 className="text-white text-6xl font-bold">Tara, Luto Tayo!</h1>
+        <div className="min-h-screen bg-white flex flex-col justify-center items-center">
+            <img src={logo} alt="logo" className="w-50 h-50" />
+            <h1 className="text-[#ac3c1c] text-7xl font-bold">
+                Tara, Luto Tayo!
+            </h1>
         </div>
     )
 }
