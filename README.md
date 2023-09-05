@@ -6,7 +6,7 @@
 
 ### Frontend / Client-side
 
--
+- HTML and CSS
 
 ### Backend / Server-side
 
